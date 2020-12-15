@@ -6,13 +6,9 @@ pub fn descending_order(x: u64) -> u64 {
         tmp = tmp / 10;
         v.push(r);
     }
+
     v.sort();
-    v.reverse();
-    let mut ordered = 0;
-    for digit in v {
-        ordered = ordered * 10 + digit;
-    }
-    ordered
+    v.iter().rev().fold(0, |s, d| s * 10 + d)
 }
 
 #[cfg(test)]
