@@ -8,11 +8,7 @@ pub struct Game {
 }
 
 impl Game {
-    pub fn new() -> Game {
-        let frame = Frame {
-            width: 60,
-            height: 20,
-        };
+    pub fn new(frame: Frame) -> Game {
         let ball = Ball {
             x: 2,
             y: 4,
