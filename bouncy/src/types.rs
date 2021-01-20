@@ -19,4 +19,6 @@ pub enum ParseError {
     TooFewArgs,
     TooManyArgs,
     InvalidInteger(String),
+    WidthTooSmall,
+    HeightTooSmall,
 }

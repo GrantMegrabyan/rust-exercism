@@ -34,6 +34,14 @@ pub fn parse_args() -> Result<Frame, ParseError> {
     let width = parse_u32(width_str)?;
     let height = parse_u32(height_str)?;
 
+    if width < 5 {
+        return Err(ParseError::WidthTooSmall);
+    }
+
+    if height < 5 {
+        return Err(ParseError::HeightTooSmall);
+    }
+
     Ok(Frame { width, height })
 }
 
