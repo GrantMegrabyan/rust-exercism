@@ -1,19 +1,35 @@
 mod ball;
 mod game;
-mod parse_args;
 mod types;
 
-use parse_args::parse_args;
+extern crate pancurses;
+
+use pancurses::{curs_set, endwin, initscr};
 
 fn main() -> Result<(), types::ParseError> {
-    let frame = parse_args()?;
+    let window = initscr();
+    window.nodelay(true);
+    window.timeout(33);
+    curs_set(0);
+    let (max_y, max_x) = window.get_max_yx();
+    let frame = types::Frame {
+        width: max_x as u32 - 2,
+        height: max_y as u32 - 2,
+    };
     let mut game = game::Game::new(frame);
-    let sleep_duration = std::time::Duration::from_millis(33);
     loop {
-        // Clear screen
-        print!("\x1B[2J\x1B[1;1H");
-        println!("{}", game);
-        game.step();
-        std::thread::sleep(sleep_duration);
+        match window.getch() {
+            Some(_) => {
+                endwin();
+                return Ok(());
+            }
+            None => {
+                window.clear();
+                window.border('|', '|', '-', '-', '+', '+', '+', '+');
+                window.mvaddch(game.ball.y as i32 + 1, game.ball.x as i32 + 1, 'o');
+                window.refresh();
+                game.step();
+            }
+        }
     }
 }
