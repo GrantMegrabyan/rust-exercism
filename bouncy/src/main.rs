@@ -1,7 +1,7 @@
-mod game;
-mod types;
 mod ball;
+mod game;
 mod parse_args;
+mod types;
 
 use parse_args::parse_args;
 
@@ -21,4 +21,3 @@ fn main() {
         }
     }
 }
-

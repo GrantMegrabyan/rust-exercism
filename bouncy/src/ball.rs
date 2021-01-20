@@ -25,11 +25,23 @@ impl Ball {
 
     pub fn mv(&mut self) {
         match self.horiz_dir {
-            HorizDir::Left => self.x = if self.x < self.speed { 0 } else { self.x - self.speed },
+            HorizDir::Left => {
+                self.x = if self.x < self.speed {
+                    0
+                } else {
+                    self.x - self.speed
+                }
+            }
             HorizDir::Right => self.x += self.speed,
         }
         match self.vert_dir {
-            VertDir::Up => self.y = if self.y < self.speed { 0 } else { self.y - self.speed },
+            VertDir::Up => {
+                self.y = if self.y < self.speed {
+                    0
+                } else {
+                    self.y - self.speed
+                }
+            }
             VertDir::Down => self.y += self.speed,
         }
     }

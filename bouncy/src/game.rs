@@ -1,6 +1,6 @@
-use std::fmt::{Display, Formatter};
-use crate::types::{Frame, HorizDir, VertDir};
 use crate::ball::Ball;
+use crate::types::{Frame, HorizDir, VertDir};
+use std::fmt::{Display, Formatter};
 
 pub struct Game {
     frame: Frame,
@@ -16,7 +16,7 @@ impl Game {
             horiz_dir: HorizDir::Left,
             speed: 1,
         };
-        Game {frame, ball}
+        Game { frame, ball }
     }
 
     pub fn step(&mut self) {
@@ -54,4 +54,3 @@ impl Display for Game {
         horiz_border(fmt)
     }
 }
-

@@ -34,7 +34,7 @@ pub fn parse_args() -> Result<Frame, ParseError> {
     let width = parse_u32(width_str)?;
     let height = parse_u32(height_str)?;
 
-    Ok(Frame {width, height})
+    Ok(Frame { width, height })
 }
 
 fn parse_u32(s: String) -> Result<u32, ParseError> {
