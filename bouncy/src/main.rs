@@ -6,7 +6,7 @@ extern crate pancurses;
 
 use pancurses::{curs_set, endwin, initscr};
 
-fn main() -> Result<(), types::ParseError> {
+fn main() -> Result<(), String> {
     let window = initscr();
     window.nodelay(true);
     window.timeout(33);
