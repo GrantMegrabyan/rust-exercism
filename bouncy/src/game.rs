@@ -4,7 +4,7 @@ use std::fmt::{Display, Formatter};
 
 pub struct Game {
     frame: Frame,
-    ball: Ball,
+    pub ball: Ball,
 }
 
 impl Game {
