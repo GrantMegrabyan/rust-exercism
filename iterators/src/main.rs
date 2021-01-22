@@ -93,7 +93,7 @@ where
 }
 
 fn main() {
-    for i in Empty {
+    for _ in Empty {
         panic!("This should not happen!");
     }
 
